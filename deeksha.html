@@ -1,20 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
+
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/profile.css">
-    <title>Deeksha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-    <section class="profile">
-        <h1>Deeksha</h1>
-        <p>I am a graduate student currently pursuing Masters in Management Information Systems. Prior to this I have worked as an AWS DevOps Engineer for 4 years . I have worked in various domains. Taking this course has been very beneficial to me since
-            it expanded my knowledge in Development area and has helped me in applying the Project Management skills in the group projects . Moving forward I would like to apply for Techno-managerial roles</p>
-    </section>
+<body onload="onloadpage()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navcolor">
+        <a class="navbar-brand homestyle" onclick="showdashboard()">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link homestyle" onclick="showhomepage()">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link homestyle" onclick="showprofile()">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link homestyle" onclick="showcontact()">Contact</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <div><h2 class="nametext">Deeksha Kiran Gujju</h2><br/>
+            <h3 class="uintext">UIN: 652929838</h3></div>
+          </form>
+        </div>
+      </nav>
+
+    
+      <div id="dashboard" class="divwidth" style="background-image: url('UIC.jpg');">
+      <div class="centeralign">
+        <!-- <img src="UIC.jpg" class="img-fluid" alt="Responsive image"> -->
+        <div class="divstyle mx-auto my-auto flex-xs-middle">
+            <h1 align="center" class="fontstyle ml-5 pt-2">Welcome to Deeksha Profile</h1>
+            <h3 class="spacetext">EAD Homework 6</h3>
+        </div>
+      </div>
+      </div>
+
+      <div id="homepage" class="centeralign pt-5">
+
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <img src="Deeksha.jpg" class="rounded" alt="Cinque Terre" width="300" height="350"> 
+              </div>
+              <div class="col mt-5">
+                <p align="justify">
+			I am a graduate student currently pursuing Masters in <a target="_blank" href="https://business.uic.edu/graduate-programs/graduate-degrees/master-science-management-information-systems/">Management Information Systems</a>. Prior to this I have worked as an AWS DevOps Engineer for 4 years . I have worked in various domains. Taking this course has been very beneficial to me since
+            it expanded my knowledge in Development area and has helped me in applying the Project Management skills in the group projects . Moving forward I would like to apply for Techno-managerial roles
+               
+                </p>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div id="profilepage" class="centeralign divwidth2" style="background-color: #4EC9DC;">
+        <div class="mx-auto my-auto flex-xs-middle scrolldiv">
+            <h1>Education</h1>
+            <h3>University of Illinois Chicago</h3>
+            <!-- <iframe width="420" height="345" src="https://youtube.com/embed?v=D8HCAU2QGFI&feature=share"> -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/D8HCAU2QGFI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </iframe>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <h1>Resume</h1>
+            <iframe src="Deeksha.pdf" style="width: 100%;height: 100%;border: none;"></iframe>
+            <!-- <embed src="Deeksha.pdf" width="100%" height="100%" /> -->
+
+        </div>
+
+      </div>
+
+      <div id="contactpage" class="centeralign divwidth3" style="background-image: url('contactbackg.jpeg');">
+        <h1 class="">Get In Touch</h1>
+          <div class="row ml-5">
+            <div class="col-xs-6 divstyle1 mr-5">
+                <div class="col-sm pt-3">
+                    <img src="phone.png" alt="phone" class="imgstyle"> 
+                    <h3 class="txtmargin mt-4">Mobile: 224-515-5796</h3>
+                  </div>
+            </div>
+
+            <div class="col-xs-6 divstyle1 mr-5 ml-4">
+                <div class="col-sm pt-3">
+                    <img src="email.png" alt="phone" class="imgstyle"> 
+                    <h3 class="txtmargin mt-4">Email: dgujju2@uic.edu</h3>
+                  </div>
+            </div>
+
+            <div class="col-xs-6 divstyle1 ml-4">
+                <div class="col-sm pt-3">
+                    <img src="linkedin.png" alt="phone" class="imgstyle1"> 
+                    <h3 class="txtmargin mt-4">LinkedIn: <a target="_blank" href="https://www.linkedin.com/in/deekshareddy21/">Deeksha Kiran Gujju</a></h3>
+                  </div>
+            </div>
+        </div>
+
+        <div class="divstyle2">
+        <h2>Send a message</h2>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="text" class="form-control" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Text</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Enter some text"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          </div>
+
+      </div>
+
 </body>
 
-</html>
+<script type = "text/javascript">
+
+    function onloadpage() {
+        console.log('called');
+        var currentscreen = 'dashboard';
+        document.getElementById('dashboard').style.display = "block";
+        document.getElementById('homepage').style.display = "none";
+        document.getElementById('profilepage').style.display = "none";
+        document.getElementById('contactpage').style.display = "none";
+    }
+
+    function myfunction() {   
+        alert("how are you");  
+    }  
+
+    function showdashboard() {
+        document.getElementById('dashboard').style.display = "block";
+        document.getElementById('homepage').style.display = "none";
+        document.getElementById('profilepage').style.display = "none";
+        document.getElementById('contactpage').style.display = "none";
+    }
+
+    function showhomepage(){
+        document.getElementById('dashboard').style.display = "none";
+        document.getElementById('homepage').style.display = "block";
+        document.getElementById('profilepage').style.display = "none";
+        document.getElementById('contactpage').style.display = "none";
+        // window.location.href = "home.html";
+    }
+
+    function showprofile() {
+        document.getElementById('dashboard').style.display = "none";
+        document.getElementById('homepage').style.display = "none";
+        document.getElementById('profilepage').style.display = "block";
+        document.getElementById('contactpage').style.display = "none";
+    }
+
+    function showcontact() {
+        document.getElementById('dashboard').style.display = "none";
+        document.getElementById('homepage').style.display = "none";
+        document.getElementById('profilepage').style.display = "none";
+        document.getElementById('contactpage').style.display = "block";
+    }
+
+</script>
+
+
+
+
+<style>
+.nametext {
+    font-size: 25px;
+}
+.uintext {
+    font-size: 20px;
+    margin-top: -28px;
+}
+.navcolor {
+    background-color: #0F8A9D !important;
+}
+.centeralign {
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 40px;
+}
+.homestyle {
+    cursor: pointer;
+}
+
+.divstyle {
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 120px;
+    background-color: #f0ebeb;
+}
+
+.divstyle1 {
+    background-color: #f2f4f7;
+    height: 160px;
+    width: 310px;
+    margin-top: 100px;
+}
+
+.divstyle2 {
+    background-color: #f2f4f7;
+    height: 300px;
+    width: 510px;
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 50px;
+    margin-left: 40px;
+}
+
+.divwidth {
+    margin-top: -40px;
+    width: 100%; 
+    height: 100%;
+    padding-top: 240px;
+
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.divwidth2 {
+    margin-top: -40px;
+    width: 100%; 
+    height: 100%;
+    padding-top: 100px;
+
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.divwidth3 {
+    margin-top: -40px;
+    width: 100%; 
+    height: 100%;
+    padding-top: 60px;
+
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fontstyle2 {
+    color: #ffffff;
+}
+
+.spacetext {
+    margin-left: 230px;
+}
+
+.profilecolor {
+    background-color: #f4dff5;
+}
+
+.scrolldiv {
+    height: 100%; 
+    overflow-y: scroll;
+}
+
+.imgstyle {
+    width: 60px;
+    height: 60px;
+    margin-left: 105px;
+}
+
+.imgstyle1 {
+    width: 150px;
+    height: 50px;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.txtmargin {
+    margin-left: 50px;
+    font-size: medium;
+    font-style: italic;
+}
+
+</style>
