@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const PLAYERX_WON = 'PLAYERX_WON', PLAYERO_WON = 'PLAYERO_WON', TIE = 'TIE';
+    const PLAYERX_WON = 'PLAYERX_WON', PLAYERO_WON = 'PLAYERO_WON', TIE = 'TIE'; //Defining constants
     const squares = Array.from(document.querySelectorAll('.tile'));
     const showplayer = document.querySelector('.display-player');
     const resetbtn = document.querySelector('#reset');
@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 'X';
     let isGameActive = true;
 
-    const winningplay = [
+    const winningplay = [ // Defining the winning conditions
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8],
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
         [2, 4, 6]
     ];
 
-    function checkresult() {
+    function checkresult() { //Checking if the result is a win
         let iswon = false;
         for (let i = 0; i <= 7; i++) {
             const checkcon = winningplay[i];
@@ -36,17 +36,17 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-    if (iswon) {
+    if (iswon) { //if the result is win checking who is the iwnner and stopping the game
             announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
             isGameActive = false;
             return;
         }
-
-    if (!panel.includes(''))
+ 
+    if (!panel.includes('')) // Tie condition
         announce(TIE);
     }
 
-    const announce = (type) => {
+    const announce = (type) => { //Announce to diaply the result
         switch(type){
             case PLAYERO_WON:
                 announcer.innerHTML = 'Player <span class="playerO">O</span> is the Winner';
@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
         return true;
     };
 
-    const updatepanel =  (index) => {
+    const updatepanel =  (index) => { //Updating the panel for alternate turns
         panel[index] = currentPlayer;
     }
 
@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    const resetpanel = () => {
+    const resetpanel = () => { //reseting the panel 
         panel = ['', '', '', '', '', '', '', '', ''];
         isGameActive = true;
         announcer.classList.add('hide');
@@ -106,9 +106,9 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    squares.forEach( (tile, index) => {
+    squares.forEach( (tile, index) => { //event listerrners for the tiles
         tile.addEventListener('click', () => userAction(tile, index));
     });
 
-    resetbtn.addEventListener('click', resetpanel);
+    resetbtn.addEventListener('click', resetpanel); //event listener for reset button
 });

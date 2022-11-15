@@ -1,4 +1,6 @@
-* {
+* 
+/*Different css classes values defined which are used in tictactoe.htm */
+{
     padding: 0;
     margin: 0;
     font-family: 'Itim', cursive;
