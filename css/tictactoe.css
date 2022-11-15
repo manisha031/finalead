@@ -5,20 +5,20 @@
 }
 
 .background {
-    background-color: #12181B;
+    background-color: #2a0054;
     height: 100vh;
     padding-top: 1px;
 }
 
-.title {
-    color: white;
+.heading {
+    color: rgb(197, 193, 68);
+    font-size: 45px;
     text-align: center;
-    font-size: 40px;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
-.display {
-    color: white;
+.head {
+    color: rgb(102, 108, 114);
     font-size: 25px;
     text-align: center;
     margin-top: 1em;
@@ -47,14 +47,16 @@
     align-items: center;
     font-size: 50px;
     cursor: pointer;
+    background-color: rgb(233, 232, 240);
 }
 
-.playerX {
-    color: #09C372;
+
+.playerx {
+    color: #bf1111;
 }
 
-.playerO {
-    color: #498AFB;
+.playero {
+    color: #078812;
 }
 
 .controls {

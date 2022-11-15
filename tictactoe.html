@@ -3,19 +3,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/tictactoe.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-    <script src="js/index.js"></script>
-    <title>Tic-Tac-Toe</title>
+    <script src="js/tictactoe.js"></script>
+    <h3 align="center" style="background-color:rgb(164, 74, 13); color:azure; padding:2% 0 2% 0; font-size :35px; font-family:sans-serif;">
+        Let's Play Tic Tac Toe
+        </h3>
 </head>
 <body>
     <main class="background">
-        <section class="title">
+        <section class="heading">
             <h1>Tic Tac Toe</h1>
         </section>
-        <section class="display">
-            Player <span class="display-player playerX">X</span>'s turn
+        <section class="head">
+            <span class="display-player playerX">X</span>'s turn
         </section>
         <section class="container">
             <div class="tile"></div>
@@ -28,7 +30,7 @@
             <div class="tile"></div>
             <div class="tile"></div>
         </section>
-        <section class="display announcer hide"></section>
+        <section class="head announcer hide"></section>
         <section class="controls">
             <button id="reset">Reset</button>
         </section>
