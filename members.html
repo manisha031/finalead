@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+border: 5px solid #555;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #198084;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h2 align="center">Meet The Team</h2>
+
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="Manisha.jpg" alt="Manisha" style="width:100%">
+      <div class="container">    
+                 <h2>Manisha Reddy Jakula<h2>
+        <p><button class="button"><a href="manisha.html">More Info</a></button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="Deeksha.jpg" alt="Deeksha" style="width:100%">
+      <div class="container">    
+                 <h2>Deeksha Reddy Gujju<h2>
+        <p><button class="button"><a href="deeksha.html">More Info</a></button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="Riya.jpg" alt="Riya" style="width:100%">
+      <div class="container">    
+                 <h2>Riya Dabre<h2>
+        <p><button class="button"><a href="riya.html">More Info</a></button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
