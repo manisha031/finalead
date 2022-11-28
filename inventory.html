@@ -8,12 +8,12 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="./js/Apis.js"></script>
-<script src="./js/Authentication.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="inventory.js"></script>
 
   </head>
-<body>
+<body onload="getAllInventories()">
 <!-- Navigation bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
@@ -35,7 +35,7 @@
 
 <div class="search-container">
     <input id="searchById" type="text" style ="position: fixed; left: 70px; top:70px;" placeholder="Search by ID" name="search">
-    <button id="searchByIdBtn"  style ="position: fixed; left: 260px; top:73px;"><i class="fa fa-search"></i></button>
+    <button id="searchByIdBtn"  style ="position: fixed; left: 260px; top:73px;"><i class="fa fa-search" onclick="getAllInventories()"></i></button>
 </div>
 <div class="search-container">
     <input id="searchByName" type="text" style ="position: fixed; left: 330px; top:70px;"  placeholder="Search by Name" name="search">
@@ -157,14 +157,15 @@
   <script>
 
     function registerEvents(){
-      $(document).on("click","#searchByIdBtn",function(){
-          var id = $("#searchById").val();
-          getProductById(id).then(function(res){
-          data = res.response;
-          fillTheTableWithData(data)
-          })
+      // $(document).on("click","#searchByIdBtn",function(){
+      //     var id = $("#searchById").val();
+      //     // getProductById(id).then(function(res){
+      //     // data = res.response;
+      //     // fillTheTableWithData(data)
+      //     // })
+      //     getAllInventories();
 
-      })
+      }
       $(document).on("click","#searchByNameBtn",function(){
           var name = $("#searchByName").val()
           getProductByName(name).then(function(res){
