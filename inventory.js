@@ -7,7 +7,6 @@ const database = supabase.createClient(url, key);
 let save = document.querySelector("#save");
 save.addEventListener("click", async (e) => {
     e.preventDefault();
-   
     let productname = document.querySelector("#productname").value;
     let category = document.querySelector("#category").value;
     let gender = document.querySelector("#gender").value;
@@ -82,10 +81,10 @@ const editCoach = async (id) => {
     const res = await database.from("Coach").select("*").eq("id", id);
     if (res) {
         
-        document.getElementById("edit-productname").value = res.data[0].name;
-        document.getElementById("edit-category").value = res.data[0].age;
-        document.getElementById("edit-gender").value = res.data[0].country;
-        document.getElementById("edit-price").value = res.data[0].country;
+        document.getElementById("edit-productname").value = res.data[0].productname;
+        document.getElementById("edit-category").value = res.data[0].category;
+        document.getElementById("edit-gender").value = res.data[0].gender;
+        document.getElementById("edit-price").value = res.data[0].price;
     }
 }
 
