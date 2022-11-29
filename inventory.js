@@ -1,9 +1,7 @@
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dm55Z21za2tndGpvZ2hzdGt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njk2NzUwMzksImV4cCI6MTk4NTI1MTAzOX0.ZPy4arGJv5_vA8rzv9Y7KQHv69k7DE0tbzoaMI5GFeE";
 
 const url = "https://evvnygmskkgtjoghstku.supabase.co";
-
 const database = supabase.createClient(url, key);
-
 let save = document.querySelector("#save");
 save.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -28,9 +26,6 @@ save.addEventListener("click", async (e) => {
         gender = "";
         price = "";
         getItem();
-        getTotalCount();
-
-
     } else {
         alert("Item Not Add Successfully")
         save.innerText = "Save"
@@ -59,7 +54,7 @@ const getTotalCount = async () => {
     total.innerText = res.data.length;
 }
 
-getTotalCount();
+
 
 const editCoach = async (id) => {
 
@@ -74,15 +69,16 @@ const editCoach = async (id) => {
     }
 }
 
+
+
 const update = document.getElementById("update");
 
-update.addEventListener("click", async () => {
-    let id = document.getElementById("id").value;
+update.addEventListener("click", async (id) => {
     let productname = document.getElementById("edit-productname").value
     let category = document.getElementById("edit-category").value;
     let gender = document.getElementById("edit-gender").value;
     let price = document.getElementById("edit-price").value;
-    update.innerText = "Updateing...."
+    update.innerText = "Updating...."
     update.setAttribute("disabled", true);
     const res = await database.from("Coach").update({
         productname, category, gender, price
@@ -96,8 +92,7 @@ update.addEventListener("click", async () => {
         category = "";
         gender = "";
         price = "";
-        getItem();
-        getTotalCount();
+        getItem()  ;
 
     } else {
         alert("Item Not Update Successfully")
@@ -113,19 +108,17 @@ const deleteItem = async (id) => {
     if (res) {
         alert("Item Deleted successfully")
         getItem();
-        getTotalCount();
-
     } else {
         alert("Item Deleted successfully")
     }
 }
 
-const filterdata = async() => {
-    const searchVal = `%${document.getElementById('myInput').value}%`;
-let res = await database
+const searchdata = async() => {
+    const searchVal = `%${document.getElementById('Input1').value}%`;
+   let res = await database
   .from('Coach')
   .select("*")
-  .ilike('productname', searchVal)
+  .ilike('category', searchVal)
   displayData(res.data);
 } 
 
@@ -144,7 +137,7 @@ const displayData = (data) => {
      <td>${data[i].gender}</td>
      <td>${data[i].price}</td>
      <td><button class="btn btn-primary" data-bs-toggle="modal"
-     onclick='editCoach(${data[i].id})' data-bs-target="#editModel">Update</button></td>
+     onclick='editCoach(${data[i].id})' data-bs-target="#editModel">Edit</button></td>
      <td><button onclick='deleteItem(${data[i].id})' class="btn btn-danger">Remove</button></td>
      </tr>`;
     }
