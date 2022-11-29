@@ -54,8 +54,8 @@ const getItem = async () => {
          <td>${res.data[i].gender}</td>
          <td>${res.data[i].price}</td>
          <td><button class="btn btn-primary" data-bs-toggle="modal"
-         onclick='editCoach(${res.data[i].id})' data-bs-target="#editModel">Edit</button></td>
-         <td><button onclick='deleteItem(${res.data[i].id})' class="btn btn-danger">Delete</button></td>
+         onclick='editCoach(${res.data[i].id})' data-bs-target="#editModel">Update</button></td>
+         <td><button onclick='deleteItem(${res.data[i].id})' class="btn btn-danger">Remove</button></td>
          </tr>`;
         }
         tbody.innerHTML = tr;
