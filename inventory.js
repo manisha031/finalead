@@ -7,7 +7,7 @@ const database = supabase.createClient(url, key);
 let save = document.querySelector("#save");
 save.addEventListener("click", async (e) => {
     e.preventDefault();
-    let id = document.querySelector("#id").value;
+   
     let productname = document.querySelector("#productname").value;
     let category = document.querySelector("#category").value;
     let gender = document.querySelector("#gender").value;
@@ -15,7 +15,7 @@ save.addEventListener("click", async (e) => {
     save.innerText = "Saving....";
     save.setAttribute("disabled", true);
     let res = await database.from("Coach").insert({
-        id : id,
+    
         productname : productname,
         category : category,
         gender : gender,
@@ -25,7 +25,6 @@ save.addEventListener("click", async (e) => {
         alert("Item Added Successfully")
         save.innerText = "Save"
         save.setAttribute("disabled", false);
-        id = "";
         productname = "";
         category = "";
         gender = "";
@@ -51,7 +50,7 @@ const getItem = async () => {
         for (var i in res.data) {
             tr += `<tr>
          <td>${parseInt(i) + 1}</td>
-         <td>${res.data[i].id}</td>
+         
          <td>${res.data[i].productname}</td>
          <td>${res.data[i].category}</td>
          <td>${res.data[i].gender}</td>
@@ -83,7 +82,7 @@ const editCoach = async (id) => {
 
     const res = await database.from("Coach").select("*").eq("id", id);
     if (res) {
-        document.getElementById("id").value = res.data[0].id;
+        
         document.getElementById("edit-productname").value = res.data[0].name;
         document.getElementById("edit-category").value = res.data[0].age;
         document.getElementById("edit-gender").value = res.data[0].country;
