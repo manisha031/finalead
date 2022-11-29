@@ -1,7 +1,7 @@
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV2dm55Z21za2tndGpvZ2hzdGt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njk2NzUwMzksImV4cCI6MTk4NTI1MTAzOX0.ZPy4arGJv5_vA8rzv9Y7KQHv69k7DE0tbzoaMI5GFeE";
-
 const url = "https://evvnygmskkgtjoghstku.supabase.co";
 const database = supabase.createClient(url, key);
+let selectedProductIdForEdit;
 let save = document.querySelector("#save");
 save.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -17,6 +17,7 @@ save.addEventListener("click", async (e) => {
         gender : gender,
         price : price
     })
+    console.log(res);
     if (res) {
         alert("Item Added Successfully")
         save.innerText = "Save"
@@ -55,49 +56,47 @@ const getTotalCount = async () => {
 }
 
 
-
-const editCoach = async (id) => {
-
-
+const editCoach = async(id) => {
     const res = await database.from("Coach").select("*").eq("id", id);
+    selectedProductIdForEdit = id;
     if (res) {
-        
+      
         document.getElementById("edit-productname").value = res.data[0].productname;
         document.getElementById("edit-category").value = res.data[0].category;
         document.getElementById("edit-gender").value = res.data[0].gender;
         document.getElementById("edit-price").value = res.data[0].price;
     }
+
 }
 
-
-
 const update = document.getElementById("update");
-
-update.addEventListener("click", async (id) => {
+update.addEventListener("click", async () => {
+   
     let productname = document.getElementById("edit-productname").value
     let category = document.getElementById("edit-category").value;
     let gender = document.getElementById("edit-gender").value;
     let price = document.getElementById("edit-price").value;
     update.innerText = "Updating...."
-    update.setAttribute("disabled", true);
+    //update.setAttribute("disabled", true);
     const res = await database.from("Coach").update({
-        productname, category, gender, price
-    }).eq("id", id)
+         productname, category, gender, price
+    }).eq("id", selectedProductIdForEdit)
 
     if (res) {
         alert("Item Update Successfully")
         update.innerText = "Update"
-        update.setAttribute("disabled", false);
+       // update.setAttribute("disabled", false);
         productname = "";
         category = "";
         gender = "";
         price = "";
-        getItem()  ;
+        document.getElementById("updateCloseButton").click();
+        getItem();
 
     } else {
         alert("Item Not Update Successfully")
         update.innerText = "Update"
-        update.setAttribute("disabled", false);
+      //  update.setAttribute("disabled", false);
     }
 })
 
@@ -126,7 +125,6 @@ const searchdata = async() => {
 const displayData = (data) => {
     let tbody = document.getElementById("tbody");
     let loading = document.getElementById("loading");
-
     let tr = "";
     for (var i in data) {
         tr += `<tr>
