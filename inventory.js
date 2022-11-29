@@ -39,28 +39,14 @@ save.addEventListener("click", async (e) => {
 })
 
 const getItem = async () => {
-    let tbody = document.getElementById("tbody");
     let loading = document.getElementById("loading");
-    let tr = "";
+    
     loading.innerText = "Loading...."
     const res = await database.from("Coach").select("*");
+    
     if (res) {
-        for (var i in res.data) {
-            tr += `<tr>
-         <td>${parseInt(i) + 1}</td>
-         
-         <td>${res.data[i].productname}</td>
-         <td>${res.data[i].category}</td>
-         <td>${res.data[i].gender}</td>
-         <td>${res.data[i].price}</td>
-         <td><button class="btn btn-primary" data-bs-toggle="modal"
-         onclick='editCoach(${res.data[i].id})' data-bs-target="#editModel">Update</button></td>
-         <td><button onclick='deleteItem(${res.data[i].id})' class="btn btn-danger">Remove</button></td>
-         </tr>`;
-        }
-        tbody.innerHTML = tr;
-        loading.innerText = ""
-
+        displayData(res.data);
+        
     }
 
 }
@@ -132,4 +118,36 @@ const deleteItem = async (id) => {
     } else {
         alert("Item Deleted successfully")
     }
+}
+
+const filterdata = async() => {
+    const searchVal = `%${document.getElementById('myInput').value}%`;
+let res = await database
+  .from('Coach')
+  .select("*")
+  .ilike('productname', searchVal)
+  displayData(res.data);
+} 
+
+
+const displayData = (data) => {
+    let tbody = document.getElementById("tbody");
+    let loading = document.getElementById("loading");
+
+    let tr = "";
+    for (var i in data) {
+        tr += `<tr>
+     <td>${parseInt(i) + 1}</td>
+     
+     <td>${data[i].productname}</td>
+     <td>${data[i].category}</td>
+     <td>${data[i].gender}</td>
+     <td>${data[i].price}</td>
+     <td><button class="btn btn-primary" data-bs-toggle="modal"
+     onclick='editCoach(${data[i].id})' data-bs-target="#editModel">Update</button></td>
+     <td><button onclick='deleteItem(${data[i].id})' class="btn btn-danger">Remove</button></td>
+     </tr>`;
+    }
+    tbody.innerHTML = tr;
+    loading.innerText = ""
 }
