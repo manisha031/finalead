@@ -1,128 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+<div id="Introduction"  class="intropage" style="background-image: url('coachnewback.jpg');">
+    <head>
+    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/inventory.css">
+        <title>Coach Inventory Management System</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/inventory.css">
-    <title>Coach Inventory Management System</title>
-</head>
+    <body>
+        <div class="container p-3 my-3 border" style="background-image: url('coachback.jpg');">
 
-<body>
-    <div class="container-fluid bg-info p-5">
-        <div class="container" >
-            <h4 class="text-center text-white">Coach Inventory Management System</h4>
+            <div class="container" >
+                <h1 class="text-center text-white">Coach Inventory Management System</h1>
+            </div>
         </div>
-    </div>
 
-    <div class="container my-4">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <h3>Coach (<span id="total"></span>)</h3>
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">Create</button>
+        <div class="container p-3 my-3 bg-dark text-black">
+            <div class="card">
+                
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h4>Coach Inventory</h4>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">Add Item</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <h4 id="loading"></h4>
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Gender</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
-            </table>
+        <div class="container">
+            <h4 id="loading"></h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Gender</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Create Coach Item</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create Coach Item</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <!-- <form action=""> -->
-                        <div class="my-3">
-                            <label for="">Enter Product Name</label>
-                            <input type="text" name="productname" id="productname" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <label for="">Enter Category</label>
-                            <input type="text" name="Category" id="category" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <label for="">Enter Gender</label>
-                            <input type="text" name="Gender" id="gender" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <label for="">Enter Price</label>
-                            <input type="text" name="Price" id="price" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <button class="btn btn-primary" type="submit" id="save">Save</button>
-                        </div>
-                    <!-- </form> -->
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <!-- <form action=""> -->
+                            <div class="my-3">
+                                <label for="">Enter Product Name</label>
+                                <input type="text" name="productname" id="productname" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <label for="">Enter Category</label>
+                                <input type="text" name="Category" id="category" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <label for="">Enter Gender</label>
+                                <input type="text" name="Gender" id="gender" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <label for="">Enter Price</label>
+                                <input type="text" name="Price" id="price" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <button class="btn btn-primary" type="submit" id="save">Save</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="editModel">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Update Item</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
+        <div class="modal fade" id="editModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Update Item</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <!-- <form action=""> -->
-                        <div class="my-3">
-                            <label for="">Enter your Product Name</label>
-                            <input type="text" name="edit-productname" id="edit-productname" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <label for="">Enter Category</label>
-                            <input type="text" name="edit-category" id="edit-category" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <label for="">Enter Gender</label>
-                            <input type="text" name="edit-gender" id="edit-gender" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <label for="">Enter Price</label>
-                            <input type="text" name="edit-price" id="edit-price" class="form-control">
-                        </div>
-                        <div class="my-3">
-                            <button class="btn btn-primary" type="submit" id="update">Update</button>
-                        </div>
-                    <!-- </form> -->
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <!-- <form action=""> -->
+                            <div class="my-3">
+                                <label for="">Enter your Product Name</label>
+                                <input type="text" name="edit-productname" id="edit-productname" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <label for="">Enter Category</label>
+                                <input type="text" name="edit-category" id="edit-category" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <label for="">Enter Gender</label>
+                                <input type="text" name="edit-gender" id="edit-gender" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <label for="">Enter Price</label>
+                                <input type="text" name="edit-price" id="edit-price" class="form-control">
+                            </div>
+                            <div class="my-3">
+                                <button class="btn btn-primary" type="submit" id="update">Update</button>
+                            </div>
+                        <!-- </form> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="inventory.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="inventory.js"></script>
+    </body>
 
-</html>
+    </html>

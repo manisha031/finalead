@@ -15,7 +15,6 @@ save.addEventListener("click", async (e) => {
     save.innerText = "Saving....";
     save.setAttribute("disabled", true);
     let res = await database.from("Coach").insert({
-    
         productname : productname,
         category : category,
         gender : gender,
