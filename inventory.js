@@ -12,7 +12,7 @@ save.addEventListener("click", async (e) => {
     let category = document.querySelector("#category").value;
     let gender = document.querySelector("#gender").value;
     let price = document.querySelector("#price").value;
-    save.innerText = "Saveing....";
+    save.innerText = "Saving....";
     save.setAttribute("disabled", true);
     let res = await database.from("Coach").insert({
         id : id,
@@ -102,7 +102,7 @@ update.addEventListener("click", async () => {
     update.innerText = "Updateing...."
     update.setAttribute("disabled", true);
     const res = await database.from("Coach").update({
-        name, age, country
+        productname, category, gender, price
     }).eq("id", id)
 
     if (res) {
